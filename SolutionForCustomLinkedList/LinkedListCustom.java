@@ -70,6 +70,25 @@ public class LinkedListCustom {
     }
 
     /**
+     * Swapping just current node(address) with previous node.
+     * Before swapping, will store node in temp so that, can iterate till last.
+     * @param head
+     * @return
+     */
+    public static Node reverse(Node head){
+        Node currentNode=head;//Making it as current Node.
+        Node prev=null;//Initally prev should be null as it is head of singly linked list.
+        while(currentNode!=null){//iterate till last
+            Node temp=currentNode.next;//Storing it in temp for iteration purpose
+            currentNode.next=prev;//Making node value as prev node...Yes it is a swap.
+            prev=currentNode;//Holding it for next iteration, as current node would be previous for next node.
+            currentNode=temp;// Help of temp :-), can iterate to next node or will get null pointer exception :-(.
+        }
+
+        return prev;
+    }
+
+    /**
      * Iterating till last and diplaying the list of values horizontally.
      *
      * @param node
@@ -98,10 +117,14 @@ public class LinkedListCustom {
 
         }
         scanner.close();
-        Node sortedNode = list.arrangeOddEven(list.head);
+        Node sortedNode = list.arrangeOddEven(list.head);//rearrange
         list.display(sortedNode);
         System.out.println();
         System.out.println("Hurray rearranged, cheers!!!");
+        Node reversedNode = list.reverse(list.head);//reverse
+        list.display(reversedNode);
+        System.out.println();
+        System.out.println("Hurray reversed, cheers!!!");
     }
 
 
