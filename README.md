@@ -1,2 +1,2 @@
 # LinkedListOddEvenRearrange
-By oreserving insertion order, this algorithm will rearrange odd then even numbers(values).
+By preserving insertion order, this algorithm will rearrange odd first then even numbers(values).
